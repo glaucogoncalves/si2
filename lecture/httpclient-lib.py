@@ -1,10 +1,8 @@
-import httplib
+import requests
 
-site = "www.ufrpe.br"
+url = "http://www.google.com.br:80"
 
-conn = httplib.HTTPConnection(site, 80)
+r1 = requests.get(url)
 
-conn.request("GET", "/")
-r1 = conn.getresponse()
-print(r1.status, r1.reason)
-print(r1.getheaders())
+print(r1.status_code, r1.reason)
+print(r1.headers)
