@@ -1,4 +1,3 @@
-# -*- coding: cp1252 -*-
 from socket import *
 
 serverPort = 12000
@@ -11,14 +10,15 @@ serverSocket.listen(1)
 print("Servidor pronto para receber mensagens. Digite Ctrl+C para terminar.")
 
 while 1:
-   try:
-	#Cria um socket para tratar a conexao do cliente
-	connectionSocket, addr = serverSocket.accept()
-	sentence = connectionSocket.recv(1024)
-	capitalizedSentence = sentence.upper()
-	connectionSocket.send(capitalizedSentence)
-	connectionSocket.close()
-   except (KeyboardInterrupt, SystemExit):
-	break
+	try:
+	   #Cria um socket para tratar a conexao do cliente
+	   connectionSocket, addr = serverSocket.accept()
+	   sentence = connectionSocket.recv(1024)
+	   capitalizedSentence = sentence.upper()
+	   connectionSocket.send(capitalizedSentence)
+	   connectionSocket.close()
+	except (KeyboardInterrupt, SystemExit):
+		break
 
+serverSocket.shutdown(SHUT_RDWR)
 serverSocket.close()
