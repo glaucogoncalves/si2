@@ -1,4 +1,4 @@
-from socket import *
+from socket import socket, AF_INET, SOCK_STREAM
 
 #serverName = '127.0.0.1'
 serverName = '127.0.0.1'
